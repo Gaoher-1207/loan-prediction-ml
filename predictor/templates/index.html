@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Loan Approval Prediction</title>
+
+<style>
+body {
+    margin:0;
+    font-family: 'Segoe UI', sans-serif;
+    background: linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.card {
+    background:white;
+    padding:40px;
+    border-radius:15px;
+    width:450px;
+    box-shadow:0 20px 40px rgba(0,0,0,.2);
+}
+
+h2 {
+    text-align:center;
+    margin-bottom:30px;
+}
+
+label {
+    font-weight:600;
+}
+
+input, select {
+    width:100%;
+    padding:8px;
+    margin:8px 0 18px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+}
+
+button {
+    width:100%;
+    padding:12px;
+    background:#667eea;
+    border:none;
+    color:white;
+    font-size:16px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+button:hover {
+    background:#5a67d8;
+}
+
+.result {
+    text-align:center;
+    margin-top:20px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+.approved {
+    color:green;
+}
+
+.rejected {
+    color:red;
+}
+
+.footer {
+    text-align:center;
+    font-size:12px;
+    margin-top:15px;
+    color:#888;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<h2>Loan Approval Prediction</h2>
+
+<form method="POST">
+{% csrf_token %}
+
+<label>Gender</label>
+<select name="Gender">
+<option value="1">Male</option>
+<option value="0">Female</option>
+</select>
+
+<label>Married</label>
+<select name="Married">
+<option value="1">Yes</option>
+<option value="0">No</option>
+</select>
+
+<label>Dependents</label>
+<select name="Dependents">
+<option value="0">0</option>
+<option value="1">1</option>
+<option value="2">2</option>
+<option value="3">3+</option>
+</select>
+
+<label>Education</label>
+<select name="Education">
+<option value="1">Graduate</option>
+<option value="0">Not Graduate</option>
+</select>
+
+<label>Self Employed</label>
+<select name="Self_Employed">
+<option value="0">No</option>
+<option value="1">Yes</option>
+</select>
+
+<label>Credit History</label>
+<select name="Credit_History">
+<option value="1">Good</option>
+<option value="0">Bad</option>
+</select>
+
+<label>Property Area</label>
+<select name="Property_Area">
+<option value="0">Rural</option>
+<option value="1">Semiurban</option>
+<option value="2">Urban</option>
+</select>
+
+<label>Loan Amount</label>
+<input type="number" name="LoanAmount" required>
+
+<label>Loan Term (months)</label>
+<input type="number" name="Loan_Term" required>
+
+<label>Total Income</label>
+<input type="number" name="Total_Income" required>
+
+<button type="submit">Predict</button>
+
+</form>
+
+{% if result %}
+<div class="result {% if 'Approved' in result %}approved{% else %}rejected{% endif %}">
+{{ result }}
+</div>
+{% endif %}
+
+<div class="footer">
+Auto log conversion applied internally
+</div>
+
+</div>
+
+</body>
+</html>
