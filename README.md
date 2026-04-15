@@ -11,21 +11,13 @@ This project predicts whether a loan application should be approved or rejected 
 \---
 
 
+## 📷 Sample Output
 
-\## 📷 Sample Output
+### ✅ Approved Prediction
+![Approved](https://raw.githubusercontent.com/Gaoher-1207/loan-prediction-ml/main/approve_result.png)
 
-
-
-\### ✅ Approved Prediction
-
-!\[Approved](approve\_result.png)
-
-
-
-\### ❌ Rejected Prediction
-
-!\[Rejected](reject\_result.png)
-
+### ❌ Rejected Prediction
+![Rejected](https://raw.githubusercontent.com/Gaoher-1207/loan-prediction-ml/main/reject_result.png)
 
 
 \---
